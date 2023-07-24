@@ -17,6 +17,7 @@ import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
 import com.haiprj.demogame.base.BaseScreen;
+import com.haiprj.demogame.models.ActorModel;
 import com.haiprj.demogame.models.MonsterModel;
 import com.haiprj.demogame.models.NinjaModel;
 import com.haiprj.demogame.scene.UserControlScene;
@@ -35,7 +36,7 @@ public class MainScreen extends BaseScreen {
     private final PerspectiveCamera camera;
     private final CameraInputController cameraController;
     private final ModelBatch modelBatch;
-    private final NinjaModel ninjaModel;
+    private final ActorModel ninjaModel;
     private final MonsterModel monsterModel;
     private final ModelInstance planeInstance;
     private final LightData lightData;
@@ -65,7 +66,7 @@ public class MainScreen extends BaseScreen {
 
         // Import and instantiate our model (called "myModel.g3dj")
         ModelBuilder modelBuilder = new ModelBuilder();
-        ninjaModel = new NinjaModel("model/ninja/ninja_all.g3dj");
+        ninjaModel = new ActorModel("model/actor/actor_all.g3dj");
         monsterModel = new MonsterModel("model/monster/monster_all_animation.g3dj");
         System.out.println(ninjaModel);
         ninjaModel.setPosition(4 * GAME_SIZE, 0f, 0f);
@@ -102,7 +103,7 @@ public class MainScreen extends BaseScreen {
                         monsterModel.useSkill();
                         break;
                     case 19:
-                        monsterModel.moveForward();
+                        ninjaModel.moveFront();
                         break;
                     case 20:
                         monsterModel.moveBack();
